@@ -1,0 +1,25 @@
+<div class=" w-full p-2 flex flex-col items-center  " >
+  <div class="w-[300px] flex flex-col gap-2">
+    <div  class=" flex flex-row items-start justify-evenly">
+      <h1 class="font-semibold">Todos</h1>
+    </div>
+    <hr>
+
+  </div>
+
+  <div  class=" flex flex-col p-2 gap-2 w-[300px] ">
+    <div *ngFor="let todo of todos$()" class="flex flex-col p-2 border rounded-md  border-primary">
+      <div class=" flex flex-row gap-2 p-1 justify-between items-center">
+        <span>{{todo.todo}}</span>
+        <div class="flex flex-row gap-2">
+          <span>Acciones</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>

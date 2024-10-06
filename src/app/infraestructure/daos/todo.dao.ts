@@ -30,11 +30,20 @@ export class TodoDaoResponse {
     if (total == null) return { isSuccess: false, error: 'Total required' };
     if (limit == null) return { isSuccess: false, error: 'Limit required' };
 
-    const todoDaos = todos
-      .map((todo: TodoDao) => TodoDao.create(todo))
-      .filter(
-        (todoResult: Result<TodoDao, string>) => todoResult.isSuccess
-      ) as TodoDao[];
+    // const todoDaos = todos
+    //   .map((todo: TodoDao) => TodoDao.create(todo))
+    //   .filter(
+    //     (todoResult: Result<TodoDao, string>) => todoResult.isSuccess
+    //   ).map(
+    //     (todoResult : Result<TodoDao, string>) => todoResult.isSuccess ? todoResult.value : undefined
+    //   );
+
+    let todoDaos : TodoDao[] = [];
+    todos.forEach( (todo : any) => {
+      const resultTodo = TodoDao.create(todo);
+      if(!resultTodo.isSuccess) throw(resultTodo.error);
+      todoDaos.push(resultTodo.value);
+    })
 
     return {
       isSuccess: true,

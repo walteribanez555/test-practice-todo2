@@ -13,7 +13,7 @@ export namespace TodoActions {
     static readonly type = '[TODO] Get item';
     constructor(
       readonly id: number,
-      readonly callback?: iCallbackActions<TodoEntity[], string>
+      readonly callback?: iCallbackActions<TodoEntity, string>
     ) {}
   }
 
@@ -29,7 +29,7 @@ export namespace TodoActions {
     static readonly type = '[TODO] Create a todo';
     constructor(
       readonly dto: CreateTodoDto,
-      readonly callback?: iCallbackActions<TodoEntity[], string>
+      readonly callback?: iCallbackActions<TodoEntity, string>
     ) {}
   }
 
@@ -37,7 +37,7 @@ export namespace TodoActions {
     static readonly type = '[TODO] Update a todo';
     constructor(
       readonly dto: UpdateTodoDto,
-      readonly callback?: iCallbackActions<TodoEntity[], string>
+      readonly callback?: iCallbackActions<TodoEntity, string>
     ) {}
   }
 
@@ -45,7 +45,7 @@ export namespace TodoActions {
     static readonly type = '[TODO] Delete a todo';
     constructor(
       readonly id: number,
-      readonly callback?: iCallbackActions<TodoEntity[], string>
+      readonly callback?: iCallbackActions<any, string>
     ) {}
   }
 }

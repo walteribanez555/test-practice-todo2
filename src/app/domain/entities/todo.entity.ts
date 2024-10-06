@@ -16,7 +16,7 @@ export class TodoEntity {
 
     if(!id ) return ['Id is required' , undefined];
     if(!todo) return ['Todo is required' , undefined];
-    if(!completed  ) return ['Completed is required' , undefined];
+    if(completed  == null ) return ['Completed is required' , undefined];
     if(!userId ) return ['User Id is required' , undefined];
 
 
